@@ -1,0 +1,20 @@
+<div class="home">
+  <div class="align">
+    <h1>
+      Welcome to Dunder-Mifflin
+    </h1>
+    <div class="subtitle">
+      <div>
+        Welcome to dunder-mifflin internal network.<br />
+        Please enter a username to view your post and comments
+      </div>
+    </div>
+    <div>
+      <div *ngIf="emailNotFound" class="error">Invalid Email</div>
+      <input type="text" [placeholder]="email" (input)="handleChange($event)" />
+      <div>
+        <button [disabled]="invalidEmail" type="submit" (click)="handleSubmit($event)">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
