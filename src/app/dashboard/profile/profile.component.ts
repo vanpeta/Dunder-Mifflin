@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.dataStorageService.user;
+    console.log(this.user);
   }
 
 }
