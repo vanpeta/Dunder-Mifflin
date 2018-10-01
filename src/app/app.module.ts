@@ -10,6 +10,7 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
 
 import { AuthService } from '../services/auth.service';
 import { DataStorageService } from '../services/data-storage.service';
+import { PostsListComponent } from './dashboard/posts-list/posts-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostsListComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule],
   providers: [AuthService, DataStorageService],
