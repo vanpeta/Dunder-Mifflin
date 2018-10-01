@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   invalidEmail = true;
   emailNotFound = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit {
       if (!data) {
         this.emailNotFound = true;
       } else {
-        console.log(data);
+        this.router.navigate([`/profile/${data[0].id}`]);
       }
     });
   }
