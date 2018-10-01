@@ -26,7 +26,12 @@ export class HomeComponent implements OnInit {
     }
   }
   handleSubmit() {
-    console.log(this.email);
-    console.log(this.authService.loggedIn);
+    this.authService.authenticate(this.email).subscribe(data => {
+      if (!data) {
+        this.emailNotFound = true;
+      } else {
+        console.log(data);
+      }
+    });
   }
 }
