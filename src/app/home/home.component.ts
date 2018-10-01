@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
+import { User } from '../models/user.model';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -27,7 +29,7 @@ export class HomeComponent implements OnInit {
     }
   }
   handleSubmit() {
-    this.authService.authenticate(this.email).subscribe(data => {
+    this.authService.authenticate(this.email).subscribe((data: User | boolean) => {
       if (!data) {
         this.emailNotFound = true;
       } else {
