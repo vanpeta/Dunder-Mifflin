@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +12,7 @@ export class HomeComponent implements OnInit {
   invalidEmail = true;
   emailNotFound = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -25,5 +27,6 @@ export class HomeComponent implements OnInit {
   }
   handleSubmit() {
     console.log(this.email);
+    console.log(this.authService.loggedIn);
   }
 }

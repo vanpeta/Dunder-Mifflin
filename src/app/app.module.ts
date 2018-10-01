@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { AuthService } from '../services/auth.service';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'profile/:id', component: DashboardComponent },
@@ -13,16 +15,9 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    DashboardComponent
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [],
+  declarations: [AppComponent, HomeComponent, DashboardComponent],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
