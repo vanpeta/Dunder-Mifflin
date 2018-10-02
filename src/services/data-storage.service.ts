@@ -19,7 +19,7 @@ export class DataStorageService {
   }
 
   fetchPosts(userId: number) {
-    const postsUrl = "https://jsonplaceholder.typicode.com/posts";
+    const postsUrl = 'https://jsonplaceholder.typicode.com/posts';
     return this.http.get(postsUrl).pipe(
       map(data => {
         return this.processPostsResponse(data, userId);
@@ -33,7 +33,7 @@ export class DataStorageService {
   }
 
   fetchComments(postId: number) {
-    const commentsUrl = "https://jsonplaceholder.typicode.com/comments";
+    const commentsUrl = 'https://jsonplaceholder.typicode.com/comments';
     return this.http.get(commentsUrl).pipe(
       map(data => {
         return this.processCommentsResponse(data, postId);

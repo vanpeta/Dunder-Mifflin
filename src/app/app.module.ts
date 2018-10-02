@@ -10,16 +10,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
-// services imports
-import { AuthService } from '../services/auth.service';
-import { DataStorageService } from '../services/data-storage.service';
 import { PostsListComponent } from './dashboard/posts-list/posts-list.component';
 import { PostComponent } from './dashboard/posts-list/post/post.component';
 import { CommentComponent } from './dashboard/posts-list/post/comment/comment.component';
+// services imports
+import { AuthService } from '../services/auth.service';
+import { DataStorageService } from '../services/data-storage.service';
+import { AuthGuard } from '../services/auth-guard.service';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'profile/:id', component: DashboardComponent },
+  { path: 'profile/:id', canActivate: [AuthGuard], component: DashboardComponent },
   { path: '**', redirectTo: '' }
 ];
 
@@ -39,7 +41,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     AngularFontAwesomeModule
   ],
-  providers: [AuthService, DataStorageService],
+  providers: [AuthService, DataStorageService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
