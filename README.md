@@ -1,6 +1,8 @@
 # DunderMifflin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
+Project is deployed [here](https://vanpeta.github.io/Dunder-Mifflin/).
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3. You will need to install Angular CLI to run this project locally if it is not already in your machine. Then clone the repo into your machine or fork it to your github.
 
 ## Development server
 
