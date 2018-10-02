@@ -1,0 +1,22 @@
+.post-box {
+	width: 100%;
+	border: solid 1px #000000;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.post-title {
+	width: 100%;
+	padding: 20px;
+	font-weight: bold;
+
+}
+.post-body {
+	width: 50%;
+	padding: 0px 0px 20px 40px;
+}
+
+.post-comments-container {
+	border-top: solid 1px #000000;
+	text-align: center;
+}

@@ -15,6 +15,7 @@ import { AuthService } from '../services/auth.service';
 import { DataStorageService } from '../services/data-storage.service';
 import { PostsListComponent } from './dashboard/posts-list/posts-list.component';
 import { PostComponent } from './dashboard/posts-list/post/post.component';
+import { CommentComponent } from './dashboard/posts-list/post/comment/comment.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent,
     PostsListComponent,
-    PostComponent
+    PostComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.dataStorageService.fetchComments(this.post.id).subscribe((data: Comment[]) => {
-      console.log(data);
+      this.comments = data;
     });
   }
 
