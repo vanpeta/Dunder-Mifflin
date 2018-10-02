@@ -13,9 +13,8 @@ export class PostsListComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    this.dataStorageService.fetchPosts(this.userId).subscribe(data => {
-      console.log(data);
+    this.dataStorageService.fetchPosts(this.userId).subscribe((data: Post[]) => {
+      this.posts = data;
     });
   }
-
 }
