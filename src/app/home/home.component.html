@@ -13,7 +13,7 @@
       <div *ngIf="emailNotFound" class="error">Invalid Email</div>
       <input type="text" [placeholder]="email" (input)="handleChange($event)" />
       <div>
-        <button [disabled]="invalidEmail" type="submit" (click)="handleSubmit($event)">Login</button>
+        <button [disabled]="invalidEmail" type="submit" (click)="handleSubmit()">Login</button>
       </div>
     </div>
   </div>
