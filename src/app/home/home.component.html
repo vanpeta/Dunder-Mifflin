@@ -1,20 +1,31 @@
 <div class="home">
   <div class="align">
-    <h1>
-      Welcome to Dunder-Mifflin
-    </h1>
+    <h1>Welcome to Dunder-Mifflin</h1>
     <div class="subtitle">
-      <div>
         Welcome to dunder-mifflin internal network.<br />
         Please enter a username to view your post and comments
-      </div>
     </div>
-    <div>
-      <div *ngIf="emailNotFound" class="error">Invalid Email</div>
-      <input type="text" [placeholder]="email" (input)="handleChange($event)" />
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <p *ngIf="emailNotFound" class="error">
+        Email not found
+      </p>
+      <p *ngIf="!email.valid && email.touched" class="error">
+        Invalid Email
+      </p>
+      <input
+        type="text"
+        placeholder="Email Address"
+        ngModel
+        name="email"
+        required
+        email
+        #email="ngModel"
+        >
       <div>
-        <button [disabled]="invalidEmail" type="submit" (click)="handleSubmit()">Login</button>
+        <button
+          type="submit"
+          [disabled]="!f.valid">Login</button>
       </div>
-    </div>
+    </form>
   </div>
 </div>

@@ -46,3 +46,7 @@ input {
 	font-weight: 400;
 	font-size: 16px;
 }
+
+input.ng-invalid.ng-touched {
+	border: solid 1px red;
+}

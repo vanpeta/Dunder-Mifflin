@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 // external pakages imports
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // components imports
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    FormsModule
   ],
   providers: [AuthService, DataStorageService, AuthGuard],
   bootstrap: [AppComponent]
