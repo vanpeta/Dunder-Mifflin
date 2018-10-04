@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
 import { AuthService } from '../../services/auth.service';
-// import { AuthGuard } from '../../services/auth-guard.service';
 
 @Component({
   selector: 'app-profile',
@@ -41,9 +41,13 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent, MockProfileComponent, MockDashboardComponent],
+      declarations: [
+        HomeComponent,
+        MockProfileComponent,
+        MockDashboardComponent
+      ],
       providers: [{ provide: AuthService, useClass: MockAuthService }],
-      imports: [RouterTestingModule.withRoutes(routes)]
+      imports: [FormsModule, RouterTestingModule.withRoutes(routes)]
     }).compileComponents();
   }));
 
@@ -57,5 +61,16 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
-
+  it('should render title with value "Welcome to Dunder-Mifflin"', () => {
+    const title = 'Welcome to Dunder-Mifflin';
+    const compiled = fixture.debugElement.nativeElement.querySelector('h1').textContent;
+    expect(compiled).toBe(title);
+  });
+  it('should render subtitle with the value provided in specs', () => {
+    const subtitle = 'Welcome to dunder-mifflin internal network. Please enter a username to view your post and comments';
+    const compiled = fixture.debugElement.nativeElement.querySelector('.subtitle').textContent;
+    expect(compiled).toContain(subtitle);
+  });
 });
+
+
