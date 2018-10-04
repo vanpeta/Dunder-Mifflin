@@ -6,7 +6,7 @@
         Please enter a username to view your post and comments
     </div>
     <form (ngSubmit)="onSubmit()" #f="ngForm">
-      <p *ngIf="emailNotFound" class="error">
+      <p *ngIf="emailNotFound && email.valid" class="error">
         Email not found
       </p>
       <p *ngIf="!email.valid && email.touched" class="error">
