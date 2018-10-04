@@ -1,6 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, Input } from '@angular/core';
+import { of } from 'rxjs';
 
 import { PostComponent } from './post.component';
+import { DataStorageService } from '../../../../services/data-storage.service';
+
+@Component({
+  selector: 'app-comment',
+  template: ''
+})
+class MockCommentComponent {
+  @Input() comment;
+}
+
+class MockDataStorage {
+  fetchComments(postId) {
+    return of(null);
+  }
+}
 
 describe('PostComponent', () => {
   let component: PostComponent;
@@ -8,18 +25,30 @@ describe('PostComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostComponent ]
-    })
-    .compileComponents();
+      declarations: [PostComponent, MockCommentComponent],
+      providers: [{ provide: DataStorageService, useClass: MockDataStorage }]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PostComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a post', () => {
+    component = fixture.componentInstance;
     expect(component).toBeTruthy();
+  });
+
+  it('should grab data from service and set it to comments', () => {
+    // make sure fetchComments will return data
+    const dataStorageService = fixture.debugElement.injector.get(DataStorageService);
+    const expectedPost = { userId: 0, id: 0, title: '', body: '' };
+    component.post = expectedPost;
+    const data = [];
+    spyOn(dataStorageService, 'fetchComments').and.returnValue(of(data));
+    // run ngOnInit
+    fixture.detectChanges();
+    expect(component.comments).toBe(data);
   });
 });

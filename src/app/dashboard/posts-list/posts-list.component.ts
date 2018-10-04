@@ -9,10 +9,11 @@ import { Post } from '../../../models/post.model';
 })
 export class PostsListComponent implements OnInit {
   userId: number = this.dataStorageService.user.id;
-  posts: Post[];
-  constructor(private dataStorageService: DataStorageService) { }
+  posts: Post[] = [];
+  constructor(private dataStorageService: DataStorageService) {}
 
   ngOnInit() {
+    console.log('RRRRRRR', this.dataStorageService.fetchPosts);
     this.dataStorageService.fetchPosts(this.userId).subscribe((data: Post[]) => {
       this.posts = data;
     });

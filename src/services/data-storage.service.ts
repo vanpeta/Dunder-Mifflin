@@ -18,6 +18,10 @@ export class DataStorageService {
     this.user = user;
   }
 
+  getUser() {
+    return this.user;
+  }
+
   fetchPosts(userId: number) {
     const postsUrl = 'https://jsonplaceholder.typicode.com/posts';
     return this.http.get(postsUrl).pipe(

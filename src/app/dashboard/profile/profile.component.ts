@@ -10,12 +10,11 @@ import { User } from '../../../models/user.model';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user: User;
+  user: User = this.dataStorageService.getUser();
   constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    this.user = this.dataStorageService.user;
-    console.log(this.user);
   }
 
 }
+
