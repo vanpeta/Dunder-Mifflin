@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('submitted', this.form);
     this.authService
       .authenticate(this.form.value.email)
       .subscribe((data: User | boolean) => {
