@@ -21,7 +21,6 @@ export class DataStorageService {
   }
 
   setComments(comments) {
-    console.log('setting user');
     this.comments = comments;
     this.commentsUpdated.emit(comments);
   }
