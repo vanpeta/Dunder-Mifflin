@@ -17,6 +17,13 @@
 }
 
 .error {
+	position: absolute;
+	width: 90%;
+	max-width: 410px;
+	left: 0;
+	right: 0;
+	top: 110px;
+	margin: auto;
 	color: red;
 }
 

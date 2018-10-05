@@ -15,12 +15,15 @@ import { Comment } from '../../../../models/comment.model';
 export class PostComponent implements OnInit {
   @Input() post: Post;
   comments: Comment[];
-  constructor(private dataStorageService: DataStorageService) { }
+  constructor(private dataStorageService: DataStorageService) {}
 
   ngOnInit() {
-    this.dataStorageService.fetchComments(this.post.id).subscribe((data: Comment[]) => {
-      this.comments = data;
+    this.dataStorageService.commentsUpdated.subscribe(comments => {
+      comments.map(comment => {
+        if (comment.filter(a => a.postId === this.post.id).length > 0) {
+          return this.comments = comment.filter(a => a.postId === this.post.id);
+        }
+      });
     });
   }
-
 }
