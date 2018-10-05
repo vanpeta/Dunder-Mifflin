@@ -57,3 +57,10 @@ input {
 input.ng-invalid.ng-touched {
 	border: solid 1px red;
 }
+
+@media only screen and (max-width: 450px) {
+	.error {
+		top: 0;
+		bottom: 115px;
+	}
+}
